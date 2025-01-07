@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invicta | Logo Generate</title>
+    <link rel="stylesheet" href="drop.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <button id="sidebarToggle" class="sidebar-toggle">
+        <span class="toggle-icon">☰</span>
+    </button>
+
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <ul class="sidebar-menu">
+                <li><a href="logoindex.html">Home</a></li>
+                <li class="options-section">
+                    <p>Graphics</p>
+                    <div class="options-container">
+                        <div id="boxx1" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx2" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx3" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx4" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx5" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx6" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx7" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx8" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx9" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="boxx10" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                    </div>
+                </li>
+                <li class="slogan-section">
+                    <p>Write Your Slogan</p>
+                    <input type="text" id="sloganInput" placeholder="Enter text here...">
+                    <button class="add-slogan-btn">Add Text</button>
+                </li>
+                <li class="options-section">
+                    <p>Photos</p>
+                    <div class="options-container">
+                        <div id="box1" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box2" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box3" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box4" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box5" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box6" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box7" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box8" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box9" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box10" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box11" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box12" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box13" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box14" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box15" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box16" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box17" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box18" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box19" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                        <div id="box20" class="image-box" draggable="true" ondragstart="dragStart(event)"></div>
+                    </div>
+                </li>
+                <li class="upload-section">
+                    <p>Upload Image</p>
+                    <input type="file" id="fileUpload" accept="image/*" style="display: none;">
+                    <button class="upload-button" onclick="document.getElementById('fileUpload').click()">
+                        Choose File
+                    </button>
+                </li>
+                <li class="fonts-section">
+                    <p>Select Font</p>
+                    <select id="fontSelect" onchange="changeSloganFont(this.value)">
+                        <option value="Arial" style="font-family: Arial">Arial</option>
+                        <option value="Times New Roman" style="font-family: 'Times New Roman'">Times New Roman</option>
+                        <option value="Helvetica" style="font-family: Helvetica">Helvetica</option>
+                        <option value="Georgia" style="font-family: Georgia">Georgia</option>
+                        <option value="Verdana" style="font-family: Verdana">Verdana</option>
+                        <option value="Impact" style="font-family: Impact">Impact</option>
+                        <option value="Courier New" style="font-family: 'Courier New'">Courier New</option>
+                        <option value="Trebuchet MS" style="font-family: 'Trebuchet MS'">Trebuchet MS</option>
+                        <option value="Comic Sans MS" style="font-family: 'Comic Sans MS'">Comic Sans MS</option>
+                        <option value="Droid Serif" style="font-family: 'Droid Serif'">Droid Serif</option>
+                    </select>
+                </li>
+                <li class="shapes-section">
+                    <p>Shapes</p>
+                    <div class="shapes-container">
+                        <div class="shape-item" data-shape="square" draggable="true"></div>
+                        <div class="shape-item" data-shape="circle" draggable="true"></div>
+                        <div class="shape-item" data-shape="triangle" draggable="true"></div>
+                        <div class="shape-item" data-shape="rectangle" draggable="true"></div>
+                        <div class="shape-item" data-shape="pentagon" draggable="true"></div>
+                        <div class="shape-item" data-shape="hexagon" draggable="true"></div>
+                        <div class="shape-item" data-shape="star" draggable="true"></div>
+                        <div class="shape-item" data-shape="dodecagon" draggable="true"></div>
+                    </div>
+                    <div class="shape-controls">
+                        <div class="size-control">
+                            <p class="control-label">Size</p>
+                            <input type="range" id="shapeSize" min="20" max="200" value="100">
+                        </div>
+                    </div>
+                </li>
+                <li class="colors-section">
+                    <p>Colors</p>
+                    <div class="color-picker">
+                        <p class="color-label">Text Color</p>
+                        <input type="color" id="textColorPicker" value="#000000">
+                    </div>
+                    <div class="color-picker">
+                        <p class="color-label">Shape Color</p>
+                        <input type="color" id="shapeColorPicker" value="#ffffff">
+                    </div>
+                </li>
+                <li class="size-controls-section">
+                    <p>Size Controls</p>
+                    <div class="size-control">
+                        <p class="control-label">Text Size</p>
+                        <input type="range" id="textSize" min="12" max="72" value="18">
+                        <span class="size-value" id="textSizeValue">18px</span>
+                    </div>
+                    <div class="size-control">
+                        <p class="control-label">Image Size</p>
+                        <input type="range" id="imageSize" min="50" max="400" value="200">
+                        <span class="size-value" id="imageSizeValue">200px</span>
+                    </div>
+                </li>
+                <li class="rotation-section">
+                    <p>Rotation</p>
+                    <div class="rotation-control">
+                        <input type="range" class="rotation-slider" id="rotationSlider" 
+                               min="0" max="360" value="0" step="1">
+                        <div class="rotation-value" id="rotationValue">0°</div>
+                        <div class="rotation-buttons">
+                            <button class="rotation-button" id="rotateLeft">-90°</button>
+                            <button class="rotation-button" id="rotateRight">+90°</button>
+                            <button class="rotation-button" id="resetRotation">Reset</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h1>Invicta</h1>
+
+    <!-- Drop Zone -->
+    <div class="dropbox" id="dropZone" ondrop="handleDrop(event)" ondragover="allowDrop(event)"></div>
+
+    <div class="custom-added" id="customAddedSection"></div>
+
+    <!-- Upload Section -->
+    <div class="upload-container">
+        <label class="upload-button" for="fileUpload">Upload Image</label>
+        <input type="file" id="fileUpload" accept="image/*">
+    </div>
+
+    <!-- Download Button -->
+    <button class="download-button" onclick="downloadOutput()">Download Output</button>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script src="drop.js"></script>
+</body>
+
+</html>

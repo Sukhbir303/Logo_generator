@@ -1,0 +1,1129 @@
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("faltu-bg7.jpg");
+            background-position: center;
+            background-size: cover;
+            color: black;
+            margin-left: 0;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        body.sidebar-visible {
+            margin-left: 250px;
+        }
+        body h1{
+            color: #ffffff;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            margin: 30px 0;
+            font-weight: 900;
+            padding: 25px 70px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #000000 100%);
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7),
+                        inset 0 2px 10px rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+        }
+
+        /* Simple metallic text effect */
+        body h1::before {
+            content: 'INVICTA';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                #ffffff 0%,
+                #c0c0c0 25%,
+                #ffffff 50%,
+                #c0c0c0 75%,
+                #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Subtle side lighting */
+        body h1::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            right: -20px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 100%);
+            transform: translateY(-50%);
+        }
+
+        /* Simple hover effect */
+        body h1:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .dropbox {
+            width: 500px;
+            height: 400px;
+            padding: 20px;
+            border: 3px dashed #4CAF50;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
+        .dropbox:hover {
+            border-color: #45a049;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .dropbox::before {
+            content: "Drag here";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 1.5em;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .dropbox:not(:empty)::before {
+            display: none;
+        }
+
+        .selection-area {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .draggable {
+            position: absolute;
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+            cursor: grab;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            text-align: center;
+            color: black;
+            z-index: 1000;
+        }
+
+        .image-box {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: grab;
+            border: 1px solid transparent;
+        }
+
+        .download-button {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .download-button:hover {
+            background-color: #45a049;
+        }
+
+        .upload-button {
+            padding: 10px 20px;
+            background-color: #0071FF;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            top: 10px;
+            margin-top: 10px;
+        }
+
+        .upload-button:hover {
+            background-color: #005DD1;
+        }
+
+        .upload-container {
+            margin-top: 10px;
+        }
+
+        .boxs {
+            margin-top: 25px;
+            width: fit-content;
+            height: 250px;
+            border: 2px solid black;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .boxs h3{
+            margin-top: -30px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .image-box {
+            flex-shrink: 0;
+        }
+
+
+        .custom-added {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .custom-added .image-box,
+        .custom-added .draggable {
+            position: relative;
+        }
+
+        /* Add sidebar styles */
+        .sidebar {
+            position: fixed;
+            left: -250px; /* Start hidden */
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background: linear-gradient(145deg, #f5f5f5 0%, #e0e0e0 100%); /* Lighter gradient */
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .sidebar.visible {
+            left: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .sidebar-content {
+            margin-top: 20px;
+            color: black; /* Darker text for contrast */
+            padding-bottom: 20px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu a{
+            color: black;
+            text-decoration: none;
+        }
+        .sidebar-menu li {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu li:not(.slogan-section):hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .slogan-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .slogan-section p {
+            color: black; /* Dark text for better readability */
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        #sloganInput {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            color: black;
+            font-size: 14px;
+        }
+
+        #sloganInput::placeholder {
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .add-slogan-btn {
+            width: 100%;
+            padding: 8px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: black;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-slogan-btn:hover {
+            background: #45a049;
+        }
+
+        .shape-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .shapes-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            color:black;
+            font-size: 14px;
+        }
+
+        .shapes-section select option {
+            background: #f5f5f5;
+            color: black;
+            padding: 8px;
+        }
+
+        .shapes-section select:focus {
+            outline: none;
+            border-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .upload-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .upload-section p {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .upload-button {
+            width: 100%;
+            padding: 8px;
+            background: #0071FF;
+            border: none;
+            border-radius: 4px;
+            color: black;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background: #005DD1;
+        }
+
+        /* Remove the old upload container styles */
+        .upload-container {
+            display: none;
+        }
+
+        .options-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .options-section p {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .options-container .image-box {
+            width: 100px;
+            height: 100px;
+            margin: 5px auto;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            cursor: grab;
+            transition: transform 0.3s ease;
+        }
+
+        .options-container .image-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Update existing image box styles */
+        #box1 {
+            background-image: url('./faltu.png');
+        }
+
+        #box2 {
+            background-image: url('./blood-bag_10415642.png');
+        }
+
+        #box3 {
+            background-image: url("fruit_9862033.png");
+        }
+
+        #box4 {
+            background-image: url('./nurses-day_10341806.png');
+        }
+
+        #box5 {
+            background-image: url('./planet-earth_1598196.png');
+        }
+        #box6 {
+            background-image: url('./recycle_8652995.png');
+        }
+
+        #box7 {
+            background-image: url('./recycle_10281265.png');
+        }
+
+        #box8 {
+            background-image: url('./education.png');
+        }
+
+        #box9 {
+            background-image: url('./regenerative_6018291.png');
+        }
+
+        #box10 {
+            background-image: url('./renewable-energy_11999577.png');
+        }
+        #box11 {
+            background-image: url('./water.png');
+        }
+
+        #box12 {
+            background-image: url('./team-spirit_11621985.png');
+        }
+
+        #box13 {
+            background-image: url('./temperature_11191748.png');
+        }
+
+        #box14 {
+            background-image: url('./vegetarian_1586098.png');
+        }
+
+        #box15 {
+            background-image: url('./band-aid.png');
+        }
+        #box16 {
+            background-image: url('./pollution.png');
+        }
+
+        #box17 {
+            background-image: url('./Gender_equality.png');
+        }
+
+        #box18 {
+            background-image: url("paise.png");
+        }
+
+        #box19 {
+            background-image: url('./transport.png');
+        }
+
+        #box20 {
+            background-image: url("coin.png");
+        }
+
+        /* Style the scrollbar for the options container */
+        .options-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .options-container::-webkit-scrollbar-track {
+            background: rgba(64, 63, 63, 0.3);
+            border-radius: 3px;
+        }
+
+        .options-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+        }
+
+        .options-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Style the sidebar scrollbar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background:rgba(64, 63, 63, 0.3);
+            border-radius: 3px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Ensure all sections are visible */
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Adjust options container max height */
+        .options-container {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        /* Ensure consistent spacing */
+        .slogan-section,
+        .shapes-section,
+        .options-section,
+        .upload-section {
+            padding: 15px !important;
+        }
+
+        .fonts-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .fonts-section p {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .fonts-section select {
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .fonts-section select option {
+            background: #f5f5f5;
+            color: black;
+            padding: 8px;
+        }
+
+        .fonts-section select:focus {
+            outline: none;
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style for colored elements */
+        .draggable.selected, .image-box.selected {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
+        .colors-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .colors-section p {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .color-picker {
+            margin-bottom: 15px;
+        }
+
+        .color-label {
+            color: black;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .color-picker input[type="color"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .color-picker input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        .color-picker input[type="color"]::-webkit-color-swatch {
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .shapes-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .shapes-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .shape-item {
+            width: 50px;
+            height: 50px;
+            background: rgba(51, 50, 50, 0.5);
+            cursor: grab;
+            transition: transform 0.2s;
+        }
+
+        .shape-item:hover {
+            transform: scale(1.1);
+            background: rgba(51, 50, 50, 1);
+        }
+
+        /* Shape definitions */
+        .shape-item[data-shape="square"] {
+            border-radius: 0;
+        }
+
+        .shape-item[data-shape="circle"] {
+            border-radius: 50%;
+        }
+
+        .shape-item[data-shape="triangle"] {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .shape-item[data-shape="rectangle"] {
+            width: 70px;
+            height: 40px;
+        }
+
+        .shape-item[data-shape="pentagon"] {
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+
+        .shape-item[data-shape="hexagon"] {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        .shape-item[data-shape="star"] {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .shape-item[data-shape="dodecagon"] {
+            clip-path: polygon(
+        50% 0%, 81% 6.7%, 93.3% 25%, 93.3% 75%, 
+        81% 93.3%, 50% 100%, 19% 93.3%, 6.7% 75%, 
+        6.7% 25%, 19% 6.7%
+      );
+        }
+
+        .shape-controls {
+            margin-top: 10px;
+        }
+
+        .control-label {
+            color: black;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        #shapeSize {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        /* Add these styles for the sidebar toggle button and sidebar visibility */
+        .sidebar-toggle {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1001;
+            background: #1a1a1a;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out; /* Smoother transition */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-toggle:hover {
+            background: #333;
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        .toggle-icon {
+            font-size: 20px;
+        }
+
+        /* Move toggle button with sidebar */
+        .sidebar-visible .sidebar-toggle {
+            left: 270px; /* 250px (sidebar width) + 20px */
+        }
+
+        /* Add these styles for the size controls */
+        .size-controls-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .size-controls-section p {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .size-control {
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            color:black;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .size-value {
+            color: black;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #45a049;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: #45a049;
+        }
+
+        /* Add these CSS styles for smooth dragging */
+        .dragging {
+            opacity: 0.9;
+            transform-origin: center center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .shape-item, .draggable, .image-box {
+            transition: all 0.3s ease;
+            cursor: grab;
+        }
+
+        .shape-item:active, .draggable:active, .image-box:active {
+            cursor: grabbing;
+        }
+
+        .dropbox {
+            transition: background-color 0.3s ease;
+        }
+
+        .dropbox.drag-over {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Add styles for delete button */
+        .delete-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            line-height: 1;
+            z-index: 1002;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .delete-btn:hover {
+            background-color: #ff0000;
+            transform: scale(1.1);
+        }
+
+        /* Show delete button when element is selected */
+        .draggable.selected .delete-btn,
+        .image-box.selected .delete-btn,
+        .shape-item.selected .delete-btn {
+            display: flex;
+        }
+        /* graphics images */
+        #boxx1 {
+            background-image: url('./danger_11826915.png');
+        }
+
+        #boxx2 {
+            background-image: url('./ecology_17188564.png');
+        }
+
+        #boxx3 {
+            background-image: url('./electric_8541984.png');
+        }
+
+        #boxx4 {
+            background-image: url('./meditation_5266950.png');
+        }
+
+        #boxx5 {
+            background-image: url('./nature_14153180.png');
+        }
+        #boxx6 {
+            background-image: url('./palm_3086410.png');
+        }
+
+        #boxx7 {
+            background-image: url('./plant-recycling_18500403.png');
+        }
+
+        #boxx8 {
+            background-image: url('./plug_17471280.png');
+        }
+
+        #boxx9 {
+            background-image: url('./sustainable_12413494.png');
+        }
+
+        #boxx10 {
+            background-image: url('./sustainable-energy_4435657.png');
+        }
+
+        /* Add styles for rotation control in sidebar */
+        .rotation-section {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .rotation-section p {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .rotation-control {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rotation-slider {
+            width: 100%;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            outline: none;
+        }
+
+        .rotation-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .rotation-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .rotation-value {
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .rotation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .rotation-button {
+            flex: 1;
+            padding: 5px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .rotation-button:hover {
+            background: #45a049;
+        }
+
+        /* Add these styles to your CSS */
+        .draggable-text {
+            position: absolute;
+            padding: 10px;
+            font-size: 16px;
+            cursor: move;
+            z-index: 100;
+        }
+
+        .text-controls {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            display: none;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .draggable-text:hover .text-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .text-handle {
+            cursor: move;
+            padding: 0 5px;
+            color: #666;
+        }
+
+        .text-options {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .text-options button {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .text-options button:hover {
+            background: #45a049;
+        }
+
+        .text-options input[type="color"] {
+            width: 25px;
+            height: 25px;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .text-options select {
+            padding: 2px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .draggable-text:focus {
+            outline: 2px solid #4CAF50;
+            border-radius: 2px;
+        }
+
+        .active {
+            outline: 2px solid #0071FF !important;
+            outline-offset: 2px;
+        }
+
+        .delete-canvas {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 24px;
+            height: 24px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dropbox:hover .delete-canvas {
+            opacity: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropbox.new {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Add CSS styles for draggable text */
+        .draggable {
+            user-select: none;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .draggable:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .draggable.dragging {
+            opacity: 0.9;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    
