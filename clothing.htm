@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clothing</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .section{
+            position: relative;
+            width: 80%;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+        .section::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-image: none;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            mix-blend-mode: screen;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(to bottom, #2c3e50, #3498db);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            overflow-y: auto;
+        }
+
+        .sidebar img {
+            width: 100%;
+            height: 80px;
+            object-fit: contain;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.2s;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .sidebar img:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            margin-left: 200px;
+        }
+
+        /* Common styles for both clothing and fabric images */
+        .fabric-swatch {
+            object-fit: cover !important; /* Override contain for fabric patterns */
+        }
+
+        .upload-container {
+            margin-top: 20px;
+        }
+
+        .upload-button {
+            width: 100%;
+            padding: 12px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .upload-button:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        .upload-button:active {
+            transform: translateY(0);
+        }
+
+        /* Section title */
+        .sidebar-title {
+            color: white;
+            font-size: 1.2em;
+            margin: 15px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* Scrollbar styling */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        #fileInput {
+            display: none;
+        }
+        /* logo section */
+        .logo-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 100%;
+            background-color: #d9d9d9;
+            margin-bottom: 50px;
+        }
+        .logoo{
+            background-image: url("Restyle_logo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 220px;
+            width: 220px;
+            margin-left: -8%;
+        }
+        .doted-line{
+            margin-left: -0.5%;
+            font-size: 20px;
+            font-weight: 500;
+            color: #928787;
+        }
+        .headline_1{
+            margin-left: -21%;
+            margin-top: -5%;
+            font-size: 45px;
+            font-weight: 700;
+            color: #000000;
+            font-family:Georgia;
+        }
+        .slogan{
+            margin-left: -18.5%;
+            margin-top: 4%;
+            font-size: 20px;
+            font-weight: 0;
+            color: #544c4c;
+            font-family:'Courier New';
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+
+        <h3 class="sidebar-title">Patterns</h3>
+        <!-- Fabric swatches -->
+        <img src="./fabric_1.png" class="fabric-swatch" alt="Fabric 1">
+        <img src="./fabric_2.png" class="fabric-swatch" alt="Fabric 2">
+        <img src="./fabric_3.png.jpg" class="fabric-swatch" alt="Fabric 3">
+        <img src="./fabric_4.jpg" class="fabric-swatch" alt="Fabric 4">
+        <img src="./fabric_5.jpg" class="fabric-swatch" alt="Fabric 5">
+        <img src="./fabric_6.png" class="fabric-swatch" alt="Fabric 5">
+
+        <!-- Upload section -->
+        <div class="upload-container">
+            <input type="file" id="fileInput" accept="image/*">
+            <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                + Add Pattern
+            </button>
+        </div>
+
+
+        <h3 class="sidebar-title">Clothing Items</h3>
+        <!-- Clothing images -->
+        <img src="./pants-r.png" alt="Pants">
+        <img src="./dress-r.png" alt="Dress">
+        <img src="./jacket-r.png" alt="Jacket">
+        <img src="./socks-r.png" alt="Socks">
+        <img src="./t_shirt-r.png" alt="T-Shirt">
+
+    
+    </div>
+
+    <div class="logo-section">
+        <!-- logo -->
+        <div class="logoo"></div>
+        <div class="doted-line">------------------------------------------------------</div>
+        <div class="headline_1">
+            <h2>ReStyle</h2>
+        </div> 
+        <div class="slogan">
+            <p>GIVE YOUR OLD A NEW STORY</p>
+        </div>
+    </div>
+    <div class="section"></div>
+
+    <script>
+        const clothingImages = document.querySelectorAll('.sidebar img:not(.fabric-swatch)');
+        const fabricSwatches = document.querySelectorAll('.fabric-swatch');
+        const section = document.querySelector('.section');
+        
+        // Handle fabric swatch clicks
+        fabricSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const imgUrl = swatch.getAttribute('src');
+                section.style.backgroundImage = `url('${imgUrl}')`;
+            });
+        });
+
+        // Handle clothing image clicks
+        clothingImages.forEach(img => {
+            img.addEventListener('click', () => {
+                const imgUrl = img.getAttribute('src');
+                document.styleSheets[0].insertRule(
+                    `.section::before { 
+                        background-image: url('${imgUrl}') !important;
+                        mix-blend-mode: screen !important;
+                        background-size: contain !important;
+                        background-position: center !important;
+                        background-repeat: no-repeat !important;
+                        opacity: 1 !important;
+                    }`,
+                    document.styleSheets[0].cssRules.length
+                );
+            });
+        });
+
+        // Add file upload handling
+        const fileInput = document.getElementById('fileInput');
+        
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Create new fabric swatch with uploaded image
+                    const newSwatch = document.createElement('div');
+                    newSwatch.className = 'fabric-swatch';
+                    newSwatch.style.backgroundImage = `url('${e.target.result}')`;
+                    
+                    // Add click handler to new swatch
+                    newSwatch.addEventListener('click', () => {
+                        section.style.backgroundImage = `url('${e.target.result}')`;
+                    });
+                    
+                    // Add new swatch to sidebar before upload button
+                    document.querySelector('.upload-container').insertAdjacentElement('beforebegin', newSwatch);
+                    
+                    // Automatically apply the uploaded pattern
+                    section.style.backgroundImage = `url('${e.target.result}')`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
